@@ -1,4 +1,5 @@
 import { Spacer } from '@/app/components/Spacer';
+import { Author } from '@/app/components/paragraphs/Author';
 import Link from 'next/link';
 import React from 'react';
 
@@ -9,7 +10,7 @@ export const StoryHomeElement = ({ story }) => {
             <Link href={`/story/${story.id}`}>
                 {story.title}
             </Link>
-            <p className="text-gray-700">by {story.by}</p>
+            <Author name={story.by} />
             <Spacer my={4} />
         </React.Fragment>
     );

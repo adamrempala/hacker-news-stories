@@ -1,9 +1,8 @@
-"use client";
-import React, { useEffect, useState } from 'react';
-import { StoryHomeElement } from '../StoryHomeElement';
+"use client"
 
-export const HomePage = () => {
+import { useEffect, useState } from "react";
 
+export const useStories = () => {
     const [stories, setStories] = useState();
 
     useEffect(() => {
@@ -18,13 +17,5 @@ export const HomePage = () => {
             .then(setStories);
     }, []);
 
-    // console.log(stories[0]);
-
-    return (
-        <div className="text-3xl">
-            Stories
-            <div className='h-8'/>
-            {stories?.map((story) => <StoryHomeElement story={story} />)}
-        </div>
-    );
+    return stories;
 };
