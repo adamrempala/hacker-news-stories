@@ -6,7 +6,6 @@ import React from 'react';
 export const StoryHomeElement = ({ story }) => {
     return (
         <React.Fragment>
-            {/* <div className='flex justify-space-between'>{story.title}</div> */}
             <Link href={`/story/${story.id}`}>
                 {story.title}
             </Link>
