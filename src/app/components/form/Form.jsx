@@ -1,9 +1,15 @@
 import React from 'react';
+import { SubmitButton } from './SubmitButton';
 
 export const Form = ({ children, onSubmit = () => {} }) => (
-    <form className="w-full max-w-sm" onSubmit={onSubmit}>
+    <form
+        className="w-full max-w-sm"
+        onSubmit={onSubmit}
+    >
         {children}
-        <button type="Submit">Submit</button>
+        <SubmitButton>
+            Submit
+        </SubmitButton>
     </form>
 );
 

@@ -1,38 +1,22 @@
 "use client"
 import { Background } from "@/app/components/Background";
 import { Header } from "@/app/components/Header";
+import { KidsSection } from "@/app/components/KidsSection";
+import { Spacer } from "@/app/components/Spacer";
 import { Author } from "@/app/components/paragraphs/Author";
+import { DataParagraph } from "@/app/components/paragraphs/DataParagraph";
 import { LinkParagraph } from "@/app/components/paragraphs/LinkParagraph";
-import { useStories } from "@/app/hooks/useStories";
+import { StoryDate } from "@/app/components/paragraphs/StoryDate";
+import { TextParagraph } from "@/app/components/paragraphs/TextParagraph";
+import { usePageStory } from "@/app/hooks/usePageStory";
+import { StoryData } from "./StoryData";
 
-export default function Story({ params: { id } }) {
-  console.log(useStories)
-  const stories = useStories();
-
-  if (stories === undefined) {
-    return <Background><h1>Loading…</h1></Background>;
-  }
-
-  console.log(stories, id)
-  const story = stories.find((story) => `${story.id}` === id);
-
-
-
-  if (!story) {
-    return error;
-  }
-  
+export const Story = ({ params: { id } }) => {  
     return (
-      <Background>
-        <LinkParagraph href="/">
-          Back
-        </LinkParagraph>
-        <Header>{story.title}</Header>
-        <Author name={story.by} />
-        <p>{story.text}</p>
-        <LinkParagraph href={story.url} external>
-          Read more
-        </LinkParagraph>
-      </Background>
+        <Background>
+            <StoryData id={id} />
+        </Background>
     );
-  }
+}
+
+export default Story;

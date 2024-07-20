@@ -1,14 +1,16 @@
 "use client"
-
-import React, { useEffect, useState } from 'react';
-import { StoryHomeElement } from './containers/StoryHomeElement';
+import React from 'react';
+import { StoryHomeElement } from './components/StoryHomeElement';
 import { useStories } from './hooks/useStories';
 import { Header } from './components/Header';
 import { LinkParagraph } from './components/paragraphs/LinkParagraph';
 import { Background } from './components/Background';
+import { NUMBER_OF_TOP_STORIES } from './consts';
 
 const HomePage = () => {
-    const stories = useStories();
+    const [stories, error] = useStories();
+
+    const noStoriesText = error ? 'Error' : 'Loading…'
 
     return (
         <Background>
@@ -16,9 +18,12 @@ const HomePage = () => {
                 Please give us your feedback
             </LinkParagraph>
             <Header>
-                Top 10 Stories
+                {`Top ${NUMBER_OF_TOP_STORIES} Stories`}
             </Header>
-            {stories ? stories?.map((story) => <StoryHomeElement key={story.id} story={story} />) : 'Loading…'}
+            {stories
+                ? stories?.map((story) => <StoryHomeElement key={story.id} story={story} />)
+                : noStoriesText
+            }
         </Background>
     );
 };
