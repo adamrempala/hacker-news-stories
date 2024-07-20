@@ -54,7 +54,7 @@ export const StoryData = ({ id }) => {
                     </TextParagraph>
                 )
             }
-            {kids && (
+            {kids && kids.length > 0 && (
                 <KidsSection kids={kids} />
             )}
         </React.Fragment>

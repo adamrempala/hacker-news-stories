@@ -66,27 +66,32 @@ export default function Feedback() {
             <Form onSubmit={handleSubmit}>
                 <Input
                     id="username"
-                    placeholder="Username"
+                    label="Username"
                     value={formData.username}
                     onChange={handleChange}
                     error={errors.username}
                     onBlur={() => validate(true)}
+                    required
                 />
                 <Input
                     id="email"
-                    placeholder="E-mail"
+                    type="email"
+                    label="E-mail"
                     value={formData.email}
                     onChange={handleChange}
                     error={errors.email}
                     onBlur={() => validate(true)}
+                    required
                 />
                 <Input
                     id="feedback"
-                    placeholder="Feedback"
+                    label="Feedback"
                     value={formData.feedback}
                     onChange={handleChange}
                     error={errors.feedback}
                     onBlur={() => validate(true)}
+                    required
+                    rows={5}
                 />
             </Form>
         </Background>

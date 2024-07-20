@@ -17,7 +17,8 @@ export const SubmitButton = ({ children }) => (
             transition
             duration-300
             ease-in-out
-            w-full"
+            w-full
+            mt-2"
     >
         {children}
     </button>
