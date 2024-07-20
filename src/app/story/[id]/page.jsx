@@ -1,10 +1,11 @@
 "use client"
 import { Background } from "@/app/components/Background";
+import { Header } from "@/app/components/Header";
 import { Author } from "@/app/components/paragraphs/Author";
 import { LinkParagraph } from "@/app/components/paragraphs/LinkParagraph";
 import { useStories } from "@/app/hooks/useStories";
 
-export default function Story({ id }) {
+export default function Story({ params: { id } }) {
   console.log(useStories)
   const stories = useStories();
 
@@ -12,7 +13,10 @@ export default function Story({ id }) {
     return <Background><h1>Loading…</h1></Background>;
   }
 
-  const story = stories.find((story) => story.id !== id);
+  console.log(stories, id)
+  const story = stories.find((story) => `${story.id}` === id);
+
+
 
   if (!story) {
     return error;
@@ -23,10 +27,10 @@ export default function Story({ id }) {
         <LinkParagraph href="/">
           Back
         </LinkParagraph>
-        <h1 className="text-4xl font-bold text-center mb-8">{story.title}</h1>
+        <Header>{story.title}</Header>
         <Author name={story.by} />
         <p>{story.text}</p>
-        <LinkParagraph href={story.url}>
+        <LinkParagraph href={story.url} external>
           Read more
         </LinkParagraph>
       </Background>

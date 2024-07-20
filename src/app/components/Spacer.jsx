@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Spacer = ({ mx, my }) => (
-    <div className={`w-${mx ?? 0} h-${my ?? 0}`} />
+export const Spacer = ({ mx = 0, my = 0 }) => (
+    <div className={`w-${mx} h-${my}`} />
 );
