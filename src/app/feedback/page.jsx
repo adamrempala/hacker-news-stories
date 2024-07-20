@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Form } from "../components/form/Form";
 import { INITIAL_FORM_DATA } from "./consts";
 
-export default function Feedback() {
+const Feedback = () => {
     const [formData, setFormData] = useState(INITIAL_FORM_DATA);
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState(false);
@@ -97,3 +97,5 @@ export default function Feedback() {
         </Background>
     );
 };
+
+export default Feedback;

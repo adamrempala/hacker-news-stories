@@ -19,11 +19,11 @@ export const usePageStory = (id) => {
                             `https://hacker-news.firebaseio.com/v0/item/${id}.json`
                         )
                         .then((response) => response.json())
-                        // .catch(() => {})
                     );
                 return Promise.all(topStoryPromises);
             })
-            .then(setKids);
+            .then(setKids)
+            .catch(() => setError(true));
     }, []);
 
     return [story, kids, error];
