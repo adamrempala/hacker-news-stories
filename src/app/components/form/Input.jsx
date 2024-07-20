@@ -17,7 +17,7 @@ export const Input = ({
     return (
         <React.Fragment>
             <label
-                for={id}
+                htmlFor={id}
                 className="text-white"
             >
                 {label}
