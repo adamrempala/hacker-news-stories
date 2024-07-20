@@ -7,12 +7,9 @@ export const usePageStory = (id) => {
     const [kids, setKids] = useState();
     const [error, setError] = useState(false);
 
-    console.log(id)
-
     useEffect(() => {
         fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
             .then(response => response.json())
-            // .catch(() => setError(true))
             .then((storyData) => {
                 console.log(storyData)
                 setStory(storyData);

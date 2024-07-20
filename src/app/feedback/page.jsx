@@ -42,7 +42,7 @@ export default function Feedback() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
-            fetch('/api/submitForm', {
+            fetch('/api/log', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
