@@ -52,8 +52,7 @@ const Feedback = () => {
                 .then(() => {
                     setSuccess(true);
                     setFormData(INITIAL_FORM_DATA);
-                })
-                .catch(() => console.log('error'));
+                });
         }
     };
 

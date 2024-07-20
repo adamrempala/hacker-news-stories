@@ -6,12 +6,10 @@ import { StoryKidElement } from './StoryKidElement';
 import { Header } from './Header';
 import { Spacer } from './Spacer';
 
-export const KidsSection = ({ kids }) => {
-    return (
-        <React.Fragment>
-            <Spacer my={4} />
-            <Header>Responses</Header>
-            {kids.map((kid) => <StoryKidElement key={kid} story={kid} />)}
-        </React.Fragment>
-    );
-};
+export const KidsSection = ({ kids }) => (
+    <React.Fragment>
+        <Spacer my={4} />
+        <Header>Responses</Header>
+        {kids.sort((a, b) => a.time > b.time).map((kid) => <StoryKidElement key={kid.id} story={kid} />)}
+    </React.Fragment>
+);

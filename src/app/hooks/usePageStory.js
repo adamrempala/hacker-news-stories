@@ -11,7 +11,6 @@ export const usePageStory = (id) => {
         fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
             .then(response => response.json())
             .then((storyData) => {
-                console.log(storyData)
                 setStory(storyData);
                 const topStoryPromises = (storyData.kids ?? [])
                     .map(
