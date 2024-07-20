@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Please make sure that you use Node.js >= `18.7.0` (e.g. `nvm use 18`).
+
 First, run the development server:
 
 ```bash
